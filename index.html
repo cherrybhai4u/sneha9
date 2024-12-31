@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Sneha</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('friendship_background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            text-align: center;
+            color: #fff;
+        }
+        .heart-emoji {
+            position: absolute;
+            animation: drop 5s infinite;
+        }
+        @keyframes drop {
+            0% {
+                transform: translateY(-100px);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .popup h2 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+        .button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ff69b4;
+            border: none;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .quotes {
+            display: none;
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+        footer {
+            margin-top: 30px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎉 Happy Birthday Sneha 🎉</h1>
+    <p>"A true friend is the greatest gift of life."</p>
+
+    <div id="popup1" class="popup">
+        <h2>You are my best friend! ❤️</h2>
+        <button class="button" onclick="showNextPopup()">Open</button>
+    </div>
+
+    <div id="popup2" class="popup">
+        <h2>You are the best! 🥰</h2>
+        <button class="button" onclick="showQuotes()">See Friendship Quotes</button>
+    </div>
+
+    <div id="quotes" class="quotes">
+        <p>"Friends are the family we choose for ourselves."</p>
+        <p>"A friend is someone who knows all about you and still loves you."</p>
+        <p>"Friendship is the only cement that will ever hold the world together."</p>
+    </div>
+
+    <footer>Tabu & Sneha - Best Friends Forever 💖</footer>
+
+    <script>
+        const emojis = ['❤️', '💖', '🥰'];
+        setInterval(() => {
+            const emoji = document.createElement('div');
+            emoji.className = 'heart-emoji';
+            emoji.style.left = Math.random() * window.innerWidth + 'px';
+            emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            document.body.appendChild(emoji);
+            setTimeout(() => emoji.remove(), 5000);
+        }, 500);
+
+        window.onload = () => {
+            document.getElementById('popup1').style.display = 'block';
+        };
+
+        function showNextPopup() {
+            document.getElementById('popup1').style.display = 'none';
+            document.getElementById('popup2').style.display = 'block';
+        }
+
+        function showQuotes() {
+            document.getElementById('popup2').style.display = 'none';
+            document.getElementById('quotes').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
